@@ -13,25 +13,24 @@ namespace IP_calculator
 {
     public class IPv4
     {
-        IPAddress ipAddress;
-        IPAddress subnetMask;
-        int cidr = 0;
+        private IPAddress ipAddress;
+        private IPAddress subnetMask;
+        private int cidr = 0;
 
         #region Metodi costruttori
 
         //Primo costruttore
 
-        public IPv4(IPAddress ipAddress, IPAddress subnetMask)
+        public IPv4(IPAddress subnetMask)
         {
-            this.ipAddress = ipAddress;
             this.subnetMask = subnetMask;
         }
 
         //Secondo costruttore
 
-        public IPv4(IPAddress subnetMask)
+        public IPv4(int cidr)
         {
-            this.subnetMask = subnetMask;
+            this.cidr = cidr;
         }
 
         //Terzo costruttore
@@ -42,6 +41,14 @@ namespace IP_calculator
             this.cidr = cidr;
         }
 
+        //Quarto costruttore
+
+        public IPv4(IPAddress ipAddress, IPAddress subnetMask)
+        {
+            this.ipAddress = ipAddress;
+            this.subnetMask = subnetMask;
+        }
+
         public IPAddress GetIP()
         {
             return ipAddress;
@@ -49,10 +56,24 @@ namespace IP_calculator
 
         #endregion
 
+        #region Metodi di modifica attributi
+
         public void SetIPAddress(IPAddress ipAddress)
         {
             this.ipAddress = ipAddress;
         }
+
+        public void SetSubnetMask(IPAddress subnetMask)
+        {
+            this.subnetMask = subnetMask;
+        }
+
+        public void SetCIDR(int cidr)
+        {
+            this.cidr = cidr;
+        }
+
+        #endregion
 
         #region Metodi relativi agli indirizzi IP di rete
 
@@ -80,10 +101,11 @@ namespace IP_calculator
             }
             return IPAddress.Parse(networkAddress);
         }
+        
         #endregion
 
 
-        #region Metodi relativi al CIDR, alle subnet e wildcard mask
+        #region Metodi per ottenere CIDR, subnet e wildcard mask
 
         public IPAddress GetSubnetMask()
         {
@@ -92,12 +114,38 @@ namespace IP_calculator
 
         public IPAddress GetWildCardMask()
         {
-            return null;
-        }
-
-        public void SetSubnetMask(IPAddress subnetMask)
-        {
-            this.subnetMask = subnetMask;
+            byte[] subnetMaskBytes = subnetMask.GetAddressBytes();
+            string wildCardMask = "";
+            for (int i = 0; i < 4; i++)
+            {
+                string subnetMaskBits = Convert.ToString(subnetMaskBytes[i], 2);
+                while (subnetMaskBits.Length < 8)
+                {
+                    subnetMaskBits = string.Concat('0', subnetMaskBits);
+                }
+                string wildCardBits = "";
+                for (int j = 0; j < 8; j++)
+                {
+                    switch (subnetMaskBits[j])
+                    {
+                        case '1':
+                            wildCardBits = string.Concat(wildCardBits, '0');
+                            break;
+                        case '0':
+                            wildCardBits = string.Concat(wildCardBits, '1');
+                            break;
+                    }
+                }
+                if (i == 0)
+                {
+                    wildCardMask = Convert.ToInt32(wildCardBits, 2).ToString();
+                }
+                else
+                {
+                    wildCardMask = string.Concat(wildCardMask, '.', Convert.ToInt32(wildCardBits, 2).ToString());
+                }
+            }
+            return IPAddress.Parse(wildCardMask);
         }
 
         public IPAddress GetSubnetMaskFromCIDR()
@@ -160,7 +208,7 @@ namespace IP_calculator
         #endregion
 
 
-        #region Metodi relativi al range di host di una rete
+        #region Metodi per ottenere range di host, indirizzo di broadcast e numero di host di una rete
 
         public IPAddress GetFirstHost()
         {
@@ -203,12 +251,12 @@ namespace IP_calculator
         public IPAddress GetBroadcastAddress()
         {
             byte[] ipAddressBytes = ipAddress.GetAddressBytes();
-            byte[] subnetMaskBytes = subnetMask.GetAddressBytes();
+            byte[] wildCardtMaskBytes = GetWildCardMask().GetAddressBytes();
             byte[] broadcastBytes = new byte[4];
             string broadcastAddress = "";
             for (int i = 0; i < 4; i++)
             {
-                broadcastBytes[i] = (byte)(ipAddressBytes[i] | subnetMaskBytes[i]);
+                broadcastBytes[i] = (byte)(ipAddressBytes[i] | wildCardtMaskBytes[i]);
                 if (i == 0)
                 {
                     broadcastAddress = broadcastBytes[i].ToString();
@@ -242,7 +290,14 @@ namespace IP_calculator
 
         public override string ToString()
         {
-            return base.ToString();
+            return "\nOra verranno mostrate tutte le caratteristiche riguardanti la rete cui appartiene l'host:" +
+            $"\n - Il primo indirizzo assegnabile ad un host è \"{GetFirstHost()}\"." +
+            $"\n - L'ultimo indirizzo assegnabile ad un host è \"{GetLastHost()}\"." +
+            $"\n - Il numero di indirizzi utilizzabili dagli host è {GetTotalNumberHost()}." +
+            $"\n - La subnet mask della rete è \"{GetSubnetMask()}\"" +
+            $"\n - La wild card mask della rete è \"{GetWildCardMask()}\"." +
+            $"\n - La notazione CIDR della rete è \"\\{GetCIDR()}\"" +
+            $"\n - L'indirizzo di broadcast è \"{GetBroadcastAddress()}\".";
         }
     }
 }

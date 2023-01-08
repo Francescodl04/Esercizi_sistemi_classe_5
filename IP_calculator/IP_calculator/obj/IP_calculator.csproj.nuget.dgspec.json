@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Scuola\\Secondaria di Secondo Grado\\V F A.S. 2022-2023\\Informatica\\IP_calculator\\IP_calculator\\IP_calculator.csproj": {}
+    "D:\\Scuola\\Secondaria di Secondo Grado\\V F A.S. 2022-2023\\Sistemi e reti\\Esercizi_sistemi_classe_5\\IP_calculator\\IP_calculator\\IP_calculator.csproj": {}
   },
   "projects": {
-    "D:\\Scuola\\Secondaria di Secondo Grado\\V F A.S. 2022-2023\\Informatica\\IP_calculator\\IP_calculator\\IP_calculator.csproj": {
+    "D:\\Scuola\\Secondaria di Secondo Grado\\V F A.S. 2022-2023\\Sistemi e reti\\Esercizi_sistemi_classe_5\\IP_calculator\\IP_calculator\\IP_calculator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Scuola\\Secondaria di Secondo Grado\\V F A.S. 2022-2023\\Informatica\\IP_calculator\\IP_calculator\\IP_calculator.csproj",
+        "projectUniqueName": "D:\\Scuola\\Secondaria di Secondo Grado\\V F A.S. 2022-2023\\Sistemi e reti\\Esercizi_sistemi_classe_5\\IP_calculator\\IP_calculator\\IP_calculator.csproj",
         "projectName": "IP_calculator",
-        "projectPath": "D:\\Scuola\\Secondaria di Secondo Grado\\V F A.S. 2022-2023\\Informatica\\IP_calculator\\IP_calculator\\IP_calculator.csproj",
+        "projectPath": "D:\\Scuola\\Secondaria di Secondo Grado\\V F A.S. 2022-2023\\Sistemi e reti\\Esercizi_sistemi_classe_5\\IP_calculator\\IP_calculator\\IP_calculator.csproj",
         "packagesPath": "C:\\Users\\Famiglia Di Lena\\.nuget\\packages\\",
-        "outputPath": "D:\\Scuola\\Secondaria di Secondo Grado\\V F A.S. 2022-2023\\Informatica\\IP_calculator\\IP_calculator\\obj\\",
+        "outputPath": "D:\\Scuola\\Secondaria di Secondo Grado\\V F A.S. 2022-2023\\Sistemi e reti\\Esercizi_sistemi_classe_5\\IP_calculator\\IP_calculator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -18,8 +18,7 @@ namespace IP_calculator
 {
     internal class Program
     {
-        static readonly string[] menuText = new string[] { "ottieni l'indirizzo di rete a partire da un indirizzo host", "ottieni, a partire dall'indirizzo e la denominazione CIDR, la subnet mask", "ottiene la denominazione CIDR da una subnet mask", "ottieni il numero di host di una rete", "esci dal programma" };
-
+        static readonly string[] menuText = new string[] { "ottieni l'indirizzo di rete a partire da un indirizzo host", "ottieni la subnet mask da una notazione CIDR ", "ottieni la notazione CIDR da una subnet mask", "ottieni le informazioni di una rete attraverso l'indirizzo di un host", "esci dal programma" };
 
         #region Metodi di uso generale
 
@@ -32,7 +31,7 @@ namespace IP_calculator
         static private IPAddress IPInsert()
         {
             Console.WriteLine("Inserisci l'indirizzo IP (nella forma x.y.z.h):");
-            IPAddress? ipAddress = null;
+            IPAddress ipAddress;
             do
             {
                 string ipAddressString = Console.ReadLine();
@@ -54,7 +53,7 @@ namespace IP_calculator
         static private IPAddress SubnetMaskInsert()
         {
             Console.WriteLine("Inserisci la subnet mask (nella forma x.y.z.h):");
-            IPAddress? subnetMask = null;
+            IPAddress subnetMask;
             do
             {
                 string subnetMaskString = Console.ReadLine();
@@ -76,8 +75,25 @@ namespace IP_calculator
         static private int CIDRInsert()
         {
             Console.WriteLine("Inserisci la notazione CIDR dell'indirizzo IP (solamente il numero):");
-            int cidr = int.Parse(Console.ReadLine());
+            int cidr;
+            do
+            {
+                bool test = int.TryParse(Console.ReadLine(), out cidr);
+                if (test == false || cidr < 8 || cidr > 32)
+                {
+                    Console.WriteLine("Non hai inserito una notazione corretta. Riprova...");
+                    continue;
+                }
+                break;
+            } while (true);
             return cidr;
+        }
+
+        static private void MenuReturn()
+        {
+            Console.WriteLine("\nPremi un tasto qualsiasi per tornare alla schermata iniziale...");
+            Console.ReadKey();
+            Main();
         }
 
         #endregion
@@ -85,6 +101,7 @@ namespace IP_calculator
         static private void Main()
         {
             LogoScreen();
+            Console.Beep();
             Console.WriteLine("Benvenuto nel software per calcolare tutti i dettagli sugli indirizzi IPv4! Scegli una delle opzioni del menu:\n");
             for (int i = 0; i < menuText.Length; i++)
             {
@@ -151,7 +168,7 @@ namespace IP_calculator
         static private void SubnetMaskScreen()
         {
             LogoScreen();
-            IPv4 ipv4 = new IPv4(IPInsert(), CIDRInsert());
+            IPv4 ipv4 = new IPv4(CIDRInsert());
             Console.WriteLine($"La subnet-mask richiesta è \"{ipv4.GetSubnetMaskFromCIDR()}\"");
             MenuReturn();
         }
@@ -167,14 +184,9 @@ namespace IP_calculator
         static private void HostScreen()
         {
             LogoScreen();
+            IPv4 ipv4 = new IPv4(IPInsert(), SubnetMaskInsert());
+            Console.WriteLine(ipv4.ToString());
             MenuReturn();
-        }
-
-        static private void MenuReturn()
-        {
-            Console.WriteLine("Premi un tasto qualsiasi per tornare alla schermata iniziale...");
-            Console.ReadKey();
-            Main();
         }
 
         static private void ExitScreen()
