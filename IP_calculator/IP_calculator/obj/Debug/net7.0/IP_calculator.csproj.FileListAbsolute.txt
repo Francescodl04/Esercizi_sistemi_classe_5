@@ -1,0 +1,15 @@
+D:\Scuola\Secondaria di Secondo Grado\V F A.S. 2022-2023\Informatica\IP_calculator\IP_calculator\bin\Debug\net7.0\IP_calculator.exe
+D:\Scuola\Secondaria di Secondo Grado\V F A.S. 2022-2023\Informatica\IP_calculator\IP_calculator\bin\Debug\net7.0\IP_calculator.deps.json
+D:\Scuola\Secondaria di Secondo Grado\V F A.S. 2022-2023\Informatica\IP_calculator\IP_calculator\bin\Debug\net7.0\IP_calculator.runtimeconfig.json
+D:\Scuola\Secondaria di Secondo Grado\V F A.S. 2022-2023\Informatica\IP_calculator\IP_calculator\bin\Debug\net7.0\IP_calculator.dll
+D:\Scuola\Secondaria di Secondo Grado\V F A.S. 2022-2023\Informatica\IP_calculator\IP_calculator\bin\Debug\net7.0\IP_calculator.pdb
+D:\Scuola\Secondaria di Secondo Grado\V F A.S. 2022-2023\Informatica\IP_calculator\IP_calculator\obj\Debug\net7.0\IP_calculator.csproj.AssemblyReference.cache
+D:\Scuola\Secondaria di Secondo Grado\V F A.S. 2022-2023\Informatica\IP_calculator\IP_calculator\obj\Debug\net7.0\IP_calculator.GeneratedMSBuildEditorConfig.editorconfig
+D:\Scuola\Secondaria di Secondo Grado\V F A.S. 2022-2023\Informatica\IP_calculator\IP_calculator\obj\Debug\net7.0\IP_calculator.AssemblyInfoInputs.cache
+D:\Scuola\Secondaria di Secondo Grado\V F A.S. 2022-2023\Informatica\IP_calculator\IP_calculator\obj\Debug\net7.0\IP_calculator.AssemblyInfo.cs
+D:\Scuola\Secondaria di Secondo Grado\V F A.S. 2022-2023\Informatica\IP_calculator\IP_calculator\obj\Debug\net7.0\IP_calculator.csproj.CoreCompileInputs.cache
+D:\Scuola\Secondaria di Secondo Grado\V F A.S. 2022-2023\Informatica\IP_calculator\IP_calculator\obj\Debug\net7.0\IP_calculator.dll
+D:\Scuola\Secondaria di Secondo Grado\V F A.S. 2022-2023\Informatica\IP_calculator\IP_calculator\obj\Debug\net7.0\refint\IP_calculator.dll
+D:\Scuola\Secondaria di Secondo Grado\V F A.S. 2022-2023\Informatica\IP_calculator\IP_calculator\obj\Debug\net7.0\IP_calculator.pdb
+D:\Scuola\Secondaria di Secondo Grado\V F A.S. 2022-2023\Informatica\IP_calculator\IP_calculator\obj\Debug\net7.0\IP_calculator.genruntimeconfig.cache
+D:\Scuola\Secondaria di Secondo Grado\V F A.S. 2022-2023\Informatica\IP_calculator\IP_calculator\obj\Debug\net7.0\ref\IP_calculator.dll
